@@ -1,0 +1,23 @@
+{
+  "name": "README-generator",
+  "version": "1.0.0",
+  "description": "Through node.js using the command line to generate a README.md file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClairePhillips51/README-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClairePhillips51/README-generator/issues"
+  },
+  "homepage": "https://github.com/ClairePhillips51/README-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
