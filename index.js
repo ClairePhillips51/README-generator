@@ -9,12 +9,12 @@ inquirer
       name: 'title',
     },
     {
-      type: 'input',
+      type: 'editor',
       message: 'Give a short decscription of your project:',
       name: 'description',
     },
     {
-      type: 'input',
+      type: 'editor',
       message: 'Give the steps required to install your project:',
       name: 'install',
     },
@@ -29,17 +29,17 @@ inquirer
       name: 'license',
     },
     {
-      type: "input",
+      type: "editor",
       message: "Provide instructions and examples for use:",
       name: "usage"
     },
     {
-      type: "input",
+      type: "editor",
       message: "Enter instructions for making contributions:",
       name: "contributions" 
     },
     {
-      type: "input",
+      type: "editor",
       message: "Enter test instructions:",
       name: "test" 
     },
@@ -57,14 +57,17 @@ inquirer
   .then((responses) => {
     
     let licInfo = "This project does not have a license.";
+    let showLic = "None";
     if(responses.license === "MIT License"){
       licInfo = "This project uses a MIT License.";
+      showLic = "MIT";
     }else if(responses.license === "GNU GPLv3"){
       licInfo = "This project uses a GNU GPLv3 License.";
+      showLic = "GNU GPLv3";
     }
 
     // Use ${responses.<name>} to access users answers
-    const infoDisplay = `# ${responses.title}
+    const infoDisplay = `# ${responses.title} ![License badge](https://img.shields.io/badge/license-${showLic}-blue.svg)
 ${responses.description}
 
 ## Table of Contents:
@@ -91,8 +94,11 @@ ${responses.contributions}
 ${responses.test}
 
 ## Questions
+GitHub: [${responses.github}](https://github.com/${responses.github})
+
+Additional questions? Email me at ${responses.email}
     `;
-  fs.writeFile('README.md', infoDisplay, (err) =>
+  fs.writeFile('README2.md', infoDisplay, (err) =>
     err ? console.log(err) : console.log('Successfully created README!')
     );   
   });
